@@ -5,5 +5,37 @@
   "keywords": ["persian", "farsi", "zwnj", "typography"],
   "author": { "name": "hosseinhabibi2004" },
   "repository": "https://github.com/hosseinhabibi2004/claude-persian-kit",
-  "license": "MIT"
+  "license": "MIT",
+  "userConfig": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Persian writing rules",
+      "description": "Add the Persian writing rules to Claude's system prompt",
+      "default": true
+    },
+    "zwnj": {
+      "type": "boolean",
+      "title": "Half-space (ZWNJ)",
+      "description": "Ask Claude to write the half-space (U+200C) in می‌خواهم, کتاب‌ها, بزرگ‌تر and similar words",
+      "default": true
+    },
+    "yehKaf": {
+      "type": "boolean",
+      "title": "Persian ی and ک",
+      "description": "Ask Claude to use Persian ی (U+06CC) and ک (U+06A9), never Arabic ي (U+064A) and ك (U+0643)",
+      "default": true
+    },
+    "digits": {
+      "type": "boolean",
+      "title": "Persian digits",
+      "description": "Ask Claude to write ۰۱۲۳۴۵۶۷۸۹ in Persian prose (code, URLs and math keep 0-9)",
+      "default": false
+    },
+    "quotes": {
+      "type": "boolean",
+      "title": "Guillemets «»",
+      "description": "Ask Claude to quote Persian text with «» instead of straight quotes",
+      "default": false
+    }
+  }
 }
