@@ -1,0 +1,9 @@
+{
+  "name": "persian-writing",
+  "version": "0.1.0",
+  "description": "Makes Claude write correct Persian: half-space (ZWNJ), Persian ی/ک instead of Arabic ي/ك, optional Persian digits and «» quotes, with a /persian command",
+  "keywords": ["persian", "farsi", "zwnj", "typography"],
+  "author": { "name": "hosseinhabibi2004" },
+  "repository": "https://github.com/hosseinhabibi2004/claude-persian-kit",
+  "license": "MIT"
+}

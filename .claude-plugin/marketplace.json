@@ -1,0 +1,71 @@
+{
+  "name": "claude-persian-kit",
+  "owner": {
+    "name": "hosseinhabibi2004"
+  },
+  "metadata": {
+    "description": "Persian font & RTL plugins for Claude Desktop and Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "persian-kit",
+      "source": "./plugins/persian-kit",
+      "description": "Everything for Persian in Claude: font, right-to-left layout and correct Persian writing, in one install",
+      "keywords": [
+        "persian",
+        "farsi",
+        "persian-font",
+        "vazirmatn",
+        "rtl",
+        "bidi",
+        "claude-desktop",
+        "claude-code"
+      ]
+    },
+    {
+      "name": "persian-fonts",
+      "source": "./plugins/persian-fonts",
+      "description": "Choose the Persian font (Vazirmatn by default, or any installed font), applied to Arabic-script characters only",
+      "keywords": [
+        "persian",
+        "farsi",
+        "persian-font",
+        "vazirmatn",
+        "rtl",
+        "bidi",
+        "claude-desktop",
+        "claude-code"
+      ]
+    },
+    {
+      "name": "persian-rtl",
+      "source": "./plugins/persian-rtl",
+      "description": "Per-paragraph right-to-left direction for Persian, mixed Persian/English lines, lists, tables and the input box, with math and code kept left-to-right",
+      "keywords": [
+        "persian",
+        "farsi",
+        "persian-font",
+        "vazirmatn",
+        "rtl",
+        "bidi",
+        "claude-desktop",
+        "claude-code"
+      ]
+    },
+    {
+      "name": "persian-writing",
+      "source": "./plugins/persian-writing",
+      "description": "Makes Claude write correct Persian: half-space (ZWNJ), Persian ی/ک, optional Persian digits and «» quotes",
+      "keywords": [
+        "persian",
+        "farsi",
+        "persian-font",
+        "vazirmatn",
+        "rtl",
+        "bidi",
+        "claude-desktop",
+        "claude-code"
+      ]
+    }
+  ]
+}

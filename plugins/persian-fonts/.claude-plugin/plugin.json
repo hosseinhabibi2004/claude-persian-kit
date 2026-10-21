@@ -1,0 +1,9 @@
+{
+  "name": "persian-fonts",
+  "version": "0.1.0",
+  "description": "Persian font for Claude: Vazirmatn by default or any installed font, applied only to Arabic-script characters; code and monospace stay untouched",
+  "keywords": ["persian", "farsi", "persian-font", "vazirmatn"],
+  "author": { "name": "hosseinhabibi2004" },
+  "repository": "https://github.com/hosseinhabibi2004/claude-persian-kit",
+  "license": "MIT"
+}

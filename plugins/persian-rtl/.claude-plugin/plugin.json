@@ -1,0 +1,9 @@
+{
+  "name": "persian-rtl",
+  "version": "0.1.0",
+  "description": "Right-to-left fixes for Persian in Claude: per-paragraph direction, mixed Persian/English lines, lists, tables and the input box, with math and code kept left-to-right",
+  "keywords": ["persian", "farsi", "rtl", "bidi"],
+  "author": { "name": "hosseinhabibi2004" },
+  "repository": "https://github.com/hosseinhabibi2004/claude-persian-kit",
+  "license": "MIT"
+}

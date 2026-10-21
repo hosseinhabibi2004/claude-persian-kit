@@ -1,0 +1,10 @@
+{
+  "name": "persian-kit",
+  "version": "0.1.0",
+  "description": "Persian font & RTL plugin for Claude Desktop and Claude Code: installs persian-fonts, persian-rtl and persian-writing together",
+  "keywords": ["persian", "farsi", "persian-font", "vazirmatn", "rtl", "bidi", "claude-desktop", "claude-code"],
+  "author": { "name": "hosseinhabibi2004" },
+  "repository": "https://github.com/hosseinhabibi2004/claude-persian-kit",
+  "license": "MIT",
+  "dependencies": ["persian-fonts", "persian-rtl", "persian-writing"]
+}
