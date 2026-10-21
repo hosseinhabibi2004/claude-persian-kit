@@ -14,12 +14,13 @@
     "test:unit": "node --test \"plugins/*/tests/*.unit.ts\" \"patcher/test/*.test.js\"",
     "test:mods": "node scripts/run-mod-tests.mjs",
     "validate": "node scripts/validate-all.mjs",
-    "typecheck": "tsc -p tsconfig.json",
+    "typecheck": "node scripts/typecheck.mjs",
     "sync": "node scripts/sync-assets.mjs",
     "sync:check": "node scripts/sync-assets.mjs --check"
   },
   "devDependencies": {
     "@electron/asar": "^4.3.1",
+    "@types/node": "^22.20.5",
     "jsdom": "^26.1.0",
     "typescript": "~5.9.3"
   }
