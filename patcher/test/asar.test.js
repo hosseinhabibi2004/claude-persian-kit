@@ -85,7 +85,8 @@ test('a rewrite replaces only the chosen file and matches the reference reader',
   assert.ok(readFileSync(join(dir, 'assets/big.bin')).equals(BIG))
   assert.equal(readFileSync(join(dir, 'assets/فایل نمونه.txt'), 'utf8'), 'سلام')
   assert.equal(readFileSync(join(dir, '.vite/build/empty.js'), 'utf8'), '')
-  assert.equal(statSync(join(dir, 'bin/run.sh')).mode & 0o111, 0o111)
+  // Windows has no execute bit to carry over.
+  if (process.platform !== 'win32') assert.equal(statSync(join(dir, 'bin/run.sh')).mode & 0o111, 0o111)
 
   // Unpacked stays unpacked; the integrity records and the header hash agree.
   assert.equal(asarLib.statFile(copy, 'native/addon.node').unpacked, true)

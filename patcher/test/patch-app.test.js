@@ -194,9 +194,14 @@ test('list-code finds Mach-O files and bundles, deepest first, skipping links', 
   put('Contents/Frameworks/Claude Helper (GPU).app/Contents/MacOS/Claude Helper (GPU)', macho)
   put('Contents/Resources/app.asar', 'not code')
   put('Contents/Resources/script.sh', '#!/bin/sh\n')
-  symlinkSync('Versions/A', join(root, 'Contents/Frameworks/Electron Framework.framework/Current'))
+  try {
+    symlinkSync('Versions/A', join(root, 'Contents/Frameworks/Electron Framework.framework/Current'))
+  } catch (e) {
+    // Windows without the privilege to make links: the link check is skipped.
+    if (e.code !== 'EPERM') throw e
+  }
 
-  const list = app.listCode(root).map(p => p.slice(root.length + 1))
+  const list = app.listCode(root).map(p => p.slice(root.length + 1).split('\\').join('/'))
   assert.equal(list.includes('Contents/Resources/app.asar'), false)
   assert.equal(list.includes('Contents/Resources/script.sh'), false)
   assert.ok(list.includes('Contents/Frameworks/Electron Framework.framework'))
