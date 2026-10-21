@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*~
+# written by the Claude Code engine when it loads a mod from a folder
+.claude-plugin/types/
+# patcher working copies and backups
+*.bak
+Claude-Persian.app/
+dist/
