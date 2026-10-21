@@ -1,0 +1,20 @@
+{
+  "name": "claude-persian-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Persian font & RTL plugin for Claude Desktop and Claude Code",
+  "license": "MIT",
+  "author": "hosseinhabibi2004",
+  "repository": "github:hosseinhabibi2004/claude-persian-kit",
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test:unit": "node --test \"plugins/*/tests/*.unit.ts\"",
+    "test:mods": "node scripts/run-mod-tests.mjs",
+    "validate": "node scripts/validate-all.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}
