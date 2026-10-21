@@ -176,7 +176,7 @@ cmd_detect() {
 find_executable() {
   local dir="$1" f best="" size best_size=0
   for f in "$dir"/*; do
-    [ -f "$f" ] && [ -x "$f" ] || continue
+    if [ ! -f "$f" ] || [ ! -x "$f" ]; then continue; fi
     case "$(basename "$f")" in chrome-sandbox | chrome_crashpad_handler | *.sh | *.so*) continue ;; esac
     [ "$(head -c 4 "$f" 2> /dev/null | od -An -tx1 | tr -d ' \n')" = "7f454c46" ] || continue
     size="$(wc -c < "$f" | tr -d ' ')"
