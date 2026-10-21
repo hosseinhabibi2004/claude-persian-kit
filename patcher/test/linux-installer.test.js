@@ -190,3 +190,29 @@ test('an AppImage is unpacked and its copy patched', { skip }, () => {
   assert.match(readFileSync(join(empty, '.local', 'bin', 'claude-persian'), 'utf8'), /exec electron /)
   rmSync(empty, { recursive: true, force: true })
 })
+
+test('the copy that ships inside the persian-rtl plugin installs the same way', { skip }, () => {
+  const shipped = new URL('../../plugins/persian-rtl/patcher/patch-linux.sh', import.meta.url).pathname
+  const fresh = mkdtempSync(join(tmpdir(), 'pk shipped '))
+  try {
+    const result = spawnSync('bash', [shipped, 'install', '--yes', '--path', install, '--font', 'Inter'], {
+      encoding: 'utf8',
+      env: { PATH: process.env.PATH, HOME: fresh },
+    })
+    assert.equal(result.status, 0, result.stderr + result.stdout)
+    const status = spawnSync('bash', [shipped, 'status'], { encoding: 'utf8', env: { PATH: process.env.PATH, HOME: fresh } })
+    assert.match(status.stdout, /patched: true/)
+    assert.match(status.stdout, /font: Inter/)
+
+    // With the default font it embeds Vazirmatn from the plugin's own fonts folder.
+    const again = spawnSync('bash', [shipped, 'install', '--yes', '--path', install], {
+      encoding: 'utf8',
+      env: { PATH: process.env.PATH, HOME: fresh },
+    })
+    assert.equal(again.status, 0, again.stderr)
+    const text = readFileSync(join(fresh, '.local/share/claude-persian-kit/Claude-Persian/resources/app.asar'))
+    assert.ok(text.includes('d09GMg'))
+  } finally {
+    rmSync(fresh, { recursive: true, force: true })
+  }
+})

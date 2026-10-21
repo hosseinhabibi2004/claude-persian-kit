@@ -14,7 +14,9 @@
     "test:unit": "node --test \"plugins/*/tests/*.unit.ts\" \"patcher/test/*.test.js\"",
     "test:mods": "node scripts/run-mod-tests.mjs",
     "validate": "node scripts/validate-all.mjs",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "sync": "node scripts/sync-assets.mjs",
+    "sync:check": "node scripts/sync-assets.mjs --check"
   },
   "devDependencies": {
     "@electron/asar": "^4.3.1",
