@@ -7,3 +7,9 @@ left-to-right. It asks for explicit consent first and never modifies the origina
 v0.1.0; on Windows the command explains that the patcher is not included yet.
 
 Part of [claude-persian-kit](../../README.en.md) ([فارسی](../../README.md)). MIT.
+
+Install:
+
+```
+/plugin install persian-rtl --marketplace hosseinhabibi2004/claude-persian-kit
+```

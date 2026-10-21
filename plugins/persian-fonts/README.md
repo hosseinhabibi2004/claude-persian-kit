@@ -6,3 +6,9 @@ text keep their own font. `/persian-font` shows the choice and `/persian-font "B
 it inside Claude Desktop, run `/persian-patch font "B Nazanin"` from the persian-rtl plugin.
 
 Part of [claude-persian-kit](../../README.en.md) ([فارسی](../../README.md)). MIT.
+
+Install:
+
+```
+/plugin install persian-fonts --marketplace hosseinhabibi2004/claude-persian-kit
+```

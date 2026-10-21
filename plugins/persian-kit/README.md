@@ -6,3 +6,9 @@ its own. The plugin is called persian-kit because plugin names that start with c
 `claude plugin install persian-kit@claude-persian-kit`.
 
 Part of [claude-persian-kit](../../README.en.md) ([فارسی](../../README.md)). MIT.
+
+Install:
+
+```
+/plugin install persian-kit --marketplace hosseinhabibi2004/claude-persian-kit
+```
