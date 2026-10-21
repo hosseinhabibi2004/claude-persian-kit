@@ -7,14 +7,17 @@
   "author": "hosseinhabibi2004",
   "repository": "github:hosseinhabibi2004/claude-persian-kit",
   "type": "module",
-  "engines": { "node": ">=22.18" },
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
-    "test:unit": "node --test \"plugins/*/tests/*.unit.ts\"",
+    "test:unit": "node --test \"plugins/*/tests/*.unit.ts\" \"patcher/test/*.test.js\"",
     "test:mods": "node scripts/run-mod-tests.mjs",
     "validate": "node scripts/validate-all.mjs",
     "typecheck": "tsc -p tsconfig.json"
   },
   "devDependencies": {
+    "jsdom": "^26.1.0",
     "typescript": "~5.9.3"
   }
 }
