@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # The claude CLI validates plugins and runs their tests.
+      - run: npm install --global @anthropic-ai/claude-code
+      - run: claude --version
+      - name: Copies of patcher/ and fonts/ inside the plugins are in sync
+        run: npm run sync:check
+      - name: Validate the marketplace and every plugin
+        run: npm run validate
+      - name: Unit tests (logic, jsdom, installers; the macOS job also runs the real codesign test)
+        run: npm run test:unit
+      - name: Mod tests (claude plugin test)
+        run: npm run test:mods
+      - name: Type-check
+        run: npm run typecheck
+
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck -x -P SCRIPTDIR patcher/*.sh patcher/lib/*.sh
+      - name: The copies that ship in the plugin are checked too
+        run: shellcheck -x -P SCRIPTDIR plugins/persian-rtl/patcher/*.sh plugins/persian-rtl/patcher/lib/*.sh
