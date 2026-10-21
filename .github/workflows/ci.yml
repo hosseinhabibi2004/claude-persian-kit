@@ -31,6 +31,10 @@ jobs:
         run: npm run validate
       - name: Unit tests (logic, jsdom, installers; the macOS job also runs the real codesign test)
         run: npm run test:unit
+      - name: Diagnose a failing unit test file on Windows (shows the crash output the runner hides)
+        if: failure() && runner.os == 'Windows'
+        run: node patcher/test/asar.test.js
+        continue-on-error: true
       - name: Mod tests (claude plugin test)
         run: npm run test:mods
       - name: Type-check
